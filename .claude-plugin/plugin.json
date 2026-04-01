@@ -1,0 +1,44 @@
+{
+  "name": "dotnet-mvc-skills",
+  "description": "C# .NET 10 MVC 四層架構開發技能包 — 結合 TDD 工作流程、SOLID 原則、UnitOfWork、DbContextFactory 與結構化程式碼審查",
+  "version": "1.0.0",
+  "author": {
+    "name": "Custom"
+  },
+  "license": "MIT",
+  "keywords": [
+    "csharp",
+    "dotnet",
+    "mvc",
+    "tdd",
+    "solid",
+    "efcore",
+    "unitofwork",
+    "three-tier",
+    "code-review"
+  ],
+  "skills": [
+    "./skills/write",
+    "./skills/fix",
+    "./skills/review",
+    "./skills/refactor",
+    "./skills/debug",
+    "./skills/spec",
+    "./skills/decision",
+    "./skills/principles",
+    "./skills/testing",
+    "./skills/done",
+    "./skills/three-tier-architecture",
+    "./skills/unitofwork-dbcontextfactory",
+    "./skills/csharp-coding-standards",
+    "./skills/efcore-patterns",
+    "./skills/di-patterns",
+    "./skills/concurrency",
+    "./skills/database-performance",
+    "./skills/configuration"
+  ],
+  "agents": [
+    "./agents/efcore-migration-specialist.md",
+    "./agents/mvc-runtime-troubleshooter.md"
+  ]
+}

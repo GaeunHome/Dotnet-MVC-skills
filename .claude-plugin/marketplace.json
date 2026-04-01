@@ -1,0 +1,17 @@
+{
+  "name": "dotnet-mvc-skills",
+  "owner": {
+    "name": "Custom"
+  },
+  "metadata": {
+    "description": "C# .NET 10 MVC skills — four-tier architecture, UnitOfWork, TDD workflows, SOLID principles.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "dotnet-mvc-skills",
+      "source": "./",
+      "description": "TDD workflows, four-tier architecture, EF Core patterns, and structured code review for .NET MVC."
+    }
+  ]
+}
