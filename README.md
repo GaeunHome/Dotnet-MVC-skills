@@ -8,29 +8,73 @@
 
 ## 安裝
 
-### 方式一：永久安裝（推薦）
+| 方式 | 範圍 | 持久 |
+|------|------|------|
+| Plugin Marketplace | 全域 | 永久 |
+| 手動複製到 `~/.claude/` | 全域 | 永久 |
+| 手動複製到 `.claude/` | 單一專案 | 永久 |
+| `--plugin-dir` | 全域 | 當次 Session |
 
-在 Claude Code CLI 中依序執行：
+### Plugin Marketplace
 
 ```
 /plugin marketplace add GaeunHome/Dotnet-MVC-skills
 /plugin install dotnet-mvc-skills
 ```
 
-安裝後每次啟動 Claude Code 都會自動載入，不需重複操作。
+### 手動複製
 
-### 方式二：單次 Session 載入（開發測試用）
+Plugin 的 `skills/{name}/SKILL.md` 對應 Claude Code 的 `commands/{name}.md`，複製時需將資料夾攤平並重新命名。
 
 ```bash
-# 先 clone 到任意位置
-git clone https://github.com/GaeunHome/Dotnet-MVC-skills.git ~/plugins/Dotnet-MVC-skills
+# clone
+git clone https://github.com/GaeunHome/Dotnet-MVC-skills.git ~/dotnet-mvc-skills
 
-# 啟動 Claude Code 時指定 plugin 目錄
+# 全域（所有專案）
+mkdir -p ~/.claude/commands ~/.claude/agents
+for dir in ~/dotnet-mvc-skills/skills/*/; do
+  cp "$dir/SKILL.md" ~/.claude/commands/"$(basename $dir)".md
+done
+cp ~/dotnet-mvc-skills/agents/*.md ~/.claude/agents/
+
+# 或專案層級（只對單一專案）
+mkdir -p .claude/commands .claude/agents
+for dir in ~/dotnet-mvc-skills/skills/*/; do
+  cp "$dir/SKILL.md" .claude/commands/"$(basename $dir)".md
+done
+cp ~/dotnet-mvc-skills/agents/*.md .claude/agents/
+```
+
+安裝結果：
+
+```
+.claude/
+├── commands/
+│   ├── write.md          # /write
+│   ├── fix.md            # /fix
+│   ├── review.md         # /review
+│   └── ...（共 18 個）
+└── agents/
+    ├── efcore-migration-specialist.md
+    └── mvc-runtime-troubleshooter.md
+```
+
+### 單次 Session
+
+```bash
+git clone https://github.com/GaeunHome/Dotnet-MVC-skills.git ~/plugins/Dotnet-MVC-skills
 claude --plugin-dir ~/plugins/Dotnet-MVC-skills
 ```
 
-> 這種方式只在該次 session 生效，關閉後需重新指定。
-> 修改 Skill 內容後，在 session 中執行 `/reload-plugins` 即可熱更新。
+> 關閉後失效，需重新指定。Session 中修改 Skill 後執行 `/reload-plugins` 可熱更新。
+
+### CLAUDE.md
+
+將本專案的 `CLAUDE.md` 複製到專案根目錄，讓 Claude 自動套用架構規範與 Skills 路由，並在底部補上專案專屬資訊。
+
+```bash
+cp ~/dotnet-mvc-skills/CLAUDE.md /path/to/your/project/CLAUDE.md
+```
 
 ---
 
