@@ -8,10 +8,29 @@
 
 ## 安裝
 
-```bash
-git clone https://github.com/GaeunHome/Dotnet-MVC-skills.git
-claude --plugin-dir ./Dotnet-MVC-skills
+### 方式一：永久安裝（推薦）
+
+在 Claude Code CLI 中依序執行：
+
 ```
+/plugin marketplace add GaeunHome/Dotnet-MVC-skills
+/plugin install dotnet-mvc-skills
+```
+
+安裝後每次啟動 Claude Code 都會自動載入，不需重複操作。
+
+### 方式二：單次 Session 載入（開發測試用）
+
+```bash
+# 先 clone 到任意位置
+git clone https://github.com/GaeunHome/Dotnet-MVC-skills.git ~/plugins/Dotnet-MVC-skills
+
+# 啟動 Claude Code 時指定 plugin 目錄
+claude --plugin-dir ~/plugins/Dotnet-MVC-skills
+```
+
+> 這種方式只在該次 session 生效，關閉後需重新指定。
+> 修改 Skill 內容後，在 session 中執行 `/reload-plugins` 即可熱更新。
 
 ---
 
