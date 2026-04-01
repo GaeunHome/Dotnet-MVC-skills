@@ -7,12 +7,9 @@ A [Claude Code plugin](https://docs.anthropic.com/en/docs/claude-code/plugins) f
 ## Install
 
 ```bash
-# add as marketplace + install (recommended)
-/plugin marketplace add {your-github-username}/dotnet-mvc-skills
-/plugin install dotnet-mvc-skills
-
-# or load directly during development
-claude --plugin-dir ./dotnet-mvc-skills
+# clone and load locally
+git clone https://github.com/GaeunHome/Dotnet-MVC-skills.git
+claude --plugin-dir ./Dotnet-MVC-skills
 ```
 
 Skills: `/write`, `/fix`, `/review`, `/refactor`, `/debug`, `/spec`, `/decision`

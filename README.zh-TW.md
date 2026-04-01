@@ -7,12 +7,9 @@
 ## 安裝
 
 ```bash
-# 從 marketplace 新增並安裝（推薦）
-/plugin marketplace add {your-github-username}/dotnet-mvc-skills
-/plugin install dotnet-mvc-skills
-
-# 或在開發時直接載入
-claude --plugin-dir ./dotnet-mvc-skills
+# 克隆並本地載入
+git clone https://github.com/GaeunHome/Dotnet-MVC-skills.git
+claude --plugin-dir ./Dotnet-MVC-skills
 ```
 
 Skills：`/write`、`/fix`、`/review`、`/refactor`、`/debug`、`/spec`、`/decision`
